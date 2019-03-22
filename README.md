@@ -20,6 +20,9 @@
   - 重新将预训练好的Imagenet网络用于分割问题中；
   - 使用反卷积层进行上采样；
   - 提出了跳跃连接来改善上采样的粗糙程度。
+  
+  
+[SegNet: A Deep Convolutional Encoder-Decoder Architecture for Image Segmentation](https://arxiv.org/pdf/1511.00561.pdf)
 
 ### 空洞卷积网络
 
