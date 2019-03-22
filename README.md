@@ -16,6 +16,11 @@
 
 2014年，加州大学伯克利分校的Long等人在[Fully Convolutional Networks for Semantic Segmentation](https://arxiv.org/pdf/1411.4038.pdf)提出的完全卷积网络，推广了原有的CNN结构，在不带有全连接层的情况下能进行密集预测。
 
+  - 将端到端的卷积网络推广到语义分割中；
+  - 重新将预训练好的Imagenet网络用于分割问题中；
+  - 使用反卷积层进行上采样；
+  - 提出了跳跃连接来改善上采样的粗糙程度。
+
 ### 空洞卷积网络
 
 
