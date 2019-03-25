@@ -1,4 +1,4 @@
-# Computer-Vision
+# 计算机视觉（Computer-Vision）
 计算机视觉利用卷积神经网络来识别或理解图片中信息，三个方面的应用：图片分类（Classification）、物体检测（Object Detection）、语义分割（Semantic Segmentation）
 
 - 图片分类（Classification）
@@ -15,11 +15,7 @@
 
 此部分内容主要介绍语义分割
 
----
-常用数据集：
-
-  - [VOC2012](http://cocodataset.org/#home)    
-  - [MSCOCO](http://host.robots.ox.ac.uk/pascal/VOC/voc2012/)
+* 常用数据集：[VOC2012](http://cocodataset.org/#home)、[MSCOCO](http://host.robots.ox.ac.uk/pascal/VOC/voc2012/)
   
   
 ## 全连接卷积网络
