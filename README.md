@@ -18,7 +18,7 @@
 * 常用数据集：[VOC2012](http://cocodataset.org/#home)、[MSCOCO](http://host.robots.ox.ac.uk/pascal/VOC/voc2012/)
   
   
-## 完全卷积网络
+## 完全卷积网络(Fully Convolutional Networks)
 
 目前大量的语义分割模型均利用了完全卷积网络，由加州大学伯克利分校的Long等人在2014年[Fully Convolutional Networks for Semantic Segmentation](https://arxiv.org/pdf/1411.4038.pdf)提出，推广了原有的CNN结构，在不带有全连接层的情况下能进行密集预测。
 
@@ -33,8 +33,10 @@
 
 完全卷积网络利用1x1卷积代替了全连接层，1x1卷积最早出现在Network In Network中，代替模型最后面的全连接层，主要有两方面的好处：
 - 改变维度
+
 全连接层使得数据扁平化，丢失了图片的空间信息，而1X1卷积可以改变维度（可以增加维度和降低维度），保留了空间信息
 - 减少模型的参数
+
 由于卷积网络可以共享参数，模型参数变少。以GoogLenet中Inception模型计算如下：
 
 下图是其[论文](https://arxiv.org/abs/1409.4842)对GoogLeNet以及Inception的可视化
@@ -51,7 +53,7 @@
 
   - 和2类似，使用了最大池化层
 
-  假设输入大小为28*28*192：
+  假设输入大小为28x28x192：
 
   - a）图中1X1卷积通道为64，3X3卷积通道为128,5X5卷积通道为32；
 
