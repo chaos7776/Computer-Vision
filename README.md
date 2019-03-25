@@ -26,6 +26,16 @@
   - 使用反卷积层进行上采样；
   - 提出了跳跃连接来改善上采样的粗糙程度。
   
+1x1卷积最早出现在Network In Network中，代替模型最后面的全连接层，主要有两方面的好处：
+- 改变维度
+全连接层使得数据扁平化，丢失了图片的空间信息，而1X1卷积可以改变维度（可以增加维度和降低维度），保留了空间信息
+- 减少模型的参数
+由于卷积网络可以共享参数，模型参数变少。以GoogLenet中Inception模型计算如下：
+
+
+下图是其[论文](https://arxiv.org/abs/1409.4842)对GoogLeNet的可视化
+
+  
   
 [SegNet: A Deep Convolutional Encoder-Decoder Architecture for Image Segmentation](https://arxiv.org/pdf/1511.00561.pdf)
 
