@@ -69,7 +69,7 @@
   
 [SegNet: A Deep Convolutional Encoder-Decoder Architecture for Image Segmentation](https://arxiv.org/pdf/1511.00561.pdf)
 
-### 转置卷积层 (ransposed Convolution)
+### 转置卷积层 (Transposed Convolution)
 
 卷积神经网络在卷积和池化过程中，高和宽都会不断缩减，如VGGnet高和宽都缩减为1/32。全卷积网络通过转置卷积层将中间层特征图的高和宽变换回输入图像的尺寸，从而令预测结果与输入图像在空间维（高和宽）上一一对应：给定空间维上的位置，通道维的输出即该位置对应像素的类别预测。
 
@@ -101,11 +101,7 @@ def bilinear_kernel(in_channels, out_channels, kernel_size):
 
 #### 数据处理
 
-图像增广
-
-图像增广
-
-语义分割数据处理与常规图像增广有不一致的地方，对于输入大小不一致的图片，经过Resize处理后，输出结果和Resize后的尺寸一致，和label不能一一对应，所以不能采用Resize处理，但可以使用Crop处理，以Gluon为例，实现代码如下：
+图像增广(Data Augmentation)技术，可以扩充训练样本，增加训练样本的多样性，一方面可以避免过拟合，一方面可以带来模型性能的提升。常规的图像增广技术主要有水平翻转、Resize、随机Crop等技术，语义分割数据处理与常规图像增广有不一致的地方，不能使用Resize。对于输入大小不一致的图片，经过Resize处理后，输出结果和Resize后的尺寸一致，和label不能一一对应，所以不能采用Resize处理，但可以使用Crop处理，以Gluon为例，实现代码如下：
 ```
 from mxnet import image
 def voc_rand_crop(feature, label, height, width):
@@ -116,20 +112,9 @@ def voc_rand_crop(feature, label, height, width):
     return feature, label
 ```
 
-
 #### 性能度量
 
 错误率和精度是很常用的性能度量工具，但不能满足所有要求，本项目利用IOU(Intersection Over Union)来衡量模型性能。混淆矩阵如下：
 ![image](./Img/混淆矩阵.png)
 
 IOU = TP/(TP + FN + FP)
-  
-
-
-
-
-
-
-
-
-
