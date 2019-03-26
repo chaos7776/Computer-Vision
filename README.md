@@ -64,13 +64,30 @@
   b)参数量为：1x1x192x64+（1x1x192x32+3x3x32x128）+（1x1x192x16+5x5x32x16）+（1x1x192x32+3x3x32x128）=114176
 
   计算得知，参数减少到18.8%，Resnet同样利用了1X1卷积减少模型参数
-
-
-  
   
 [SegNet: A Deep Convolutional Encoder-Decoder Architecture for Image Segmentation](https://arxiv.org/pdf/1511.00561.pdf)
 
-### 空洞卷积网络
+### Project
+
+#### 数据处理
+
+图像增广
+
+图像增广
+
+语义分割数据处理与常规图像增广有不一致的地方，对于输入大小不一致的图片，经过Resize处理后，输出结果和Resize后的尺寸一致，和label不能一一对应，所以不能采用Resize处理，但可以使用Crop处理，以Gluon为例，实现代码如下：
+```
+def voc_rand_crop(feature, label, height, width):
+    //进行Random Crop，并返回Crop区域
+    feature, rect = image.random_crop(feature, (width, height))
+    //对label进行固定Crop
+    label = image.fixed_crop(label, *rect)
+    return feature, label
+```
+
+
+
+
 
 
 
