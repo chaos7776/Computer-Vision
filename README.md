@@ -115,6 +115,7 @@ def voc_rand_crop(feature, label, height, width):
 #### 性能度量
 
 错误率和精度是很常用的性能度量工具，但不能满足所有要求，本项目利用IOU(Intersection Over Union)来衡量模型性能。混淆矩阵如下：
+
 ![image](./Img/混淆矩阵.png)
 
 IOU = TP/(TP + FN + FP)
