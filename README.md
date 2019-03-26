@@ -81,6 +81,7 @@
 
 语义分割数据处理与常规图像增广有不一致的地方，对于输入大小不一致的图片，经过Resize处理后，输出结果和Resize后的尺寸一致，和label不能一一对应，所以不能采用Resize处理，但可以使用Crop处理，以Gluon为例，实现代码如下：
 ```
+from mxnet import image
 def voc_rand_crop(feature, label, height, width):
     //进行Random Crop，并返回Crop区域
     feature, rect = image.random_crop(feature, (width, height))
