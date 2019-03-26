@@ -22,6 +22,8 @@
 
 目前大量的语义分割模型均利用了完全卷积网络，由加州大学伯克利分校的Long等人在2014年[Fully Convolutional Networks for Semantic Segmentation](https://arxiv.org/pdf/1411.4038.pdf)提出，推广了原有的CNN结构，在不带有全连接层的情况下能进行密集预测。
 
+![image](./Img/11.png)
+
   - 将端到端的卷积网络推广到语义分割中；
   - 重新将预训练好的Imagenet网络用于分割问题中；
   - 使用反卷积层进行上采样；
@@ -118,10 +120,9 @@ def voc_rand_crop(feature, label, height, width):
 #### 性能度量
 
 错误率和精度是很常用的性能度量工具，但不能满足所有要求，本项目利用IOU(Intersection Over Union)来衡量模型性能。混淆矩阵如下：
+![image](./Img/混淆矩阵.png)
 
-  |          |预测结果             |
-  |----------|----------|----------|
-  |真实情况   |正例      |反例       |
+IOU = TP/(TP + FN + FP)
   
 
 
