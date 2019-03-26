@@ -27,7 +27,7 @@
   - 使用反卷积层进行上采样；
   - 提出了跳跃连接来改善上采样的粗糙程度。
  
- 后续主要介绍完全卷积网络中1x1卷积，上采样、跳跃连接三个部分
+ 后续主要介绍完全卷积网络中1x1卷积，转置卷积、跳跃连接三个部分
   
 ### 1x1卷积(1x1 Convolution)
 
@@ -69,7 +69,29 @@
 
 ### 转置卷积层 (ransposed Convolution)
 
-卷积神经网络在卷积和池化过程中，高和宽都会不断缩减，VGGnet高和宽都缩减为1/32,全卷积网络通过转置卷积（transposed convolution）层将中间层特征图的高和宽变换回输入图像的尺寸，从而令预测结果与输入图像在空间维（高和宽）上一一对应：给定空间维上的位置，通道维的输出即该位置对应像素的类别预测。
+卷积神经网络在卷积和池化过程中，高和宽都会不断缩减，如VGGnet高和宽都缩减为1/32。全卷积网络通过转置卷积（transposed convolution）层将中间层特征图的高和宽变换回输入图像的尺寸，从而令预测结果与输入图像在空间维（高和宽）上一一对应：给定空间维上的位置，通道维的输出即该位置对应像素的类别预测。
+
+转置卷积层需要初始化，即上采样（upsample）。上采样的方法有很多，常用的有双线性插值。简单来说，为了得到输出图像在坐标(x,y)上的像素，先将该坐标映射到输入图像的坐标 (𝑥′,𝑦′)，例如根据输入与输出的尺寸之比来映射。李沐在《动手学习深度学习》中提供了bilinear_kernel函数的实现范例：
+```
+def bilinear_kernel(in_channels, out_channels, kernel_size):
+    factor = (kernel_size + 1) // 2
+    if kernel_size % 2 == 1:
+        center = factor - 1
+    else:
+        center = factor - 0.5
+    og = np.ogrid[:kernel_size, :kernel_size]
+    filt = (1 - abs(og[0] - center) / factor) * \
+           (1 - abs(og[1] - center) / factor)
+    weight = np.zeros((in_channels, out_channels, kernel_size, kernel_size),
+                      dtype='float32')
+    weight[range(in_channels), range(out_channels), :, :] = filt
+    return nd.array(weight)
+```
+
+### 跳跃连接(Skip Layer)
+
+卷积和池化过程中，会丢失空间信息，在[Fully Convolutional Networks for Semantic Segmentation](https://arxiv.org/pdf/1411.4038.pdf)论文中，作者除了采取最后一个卷积层的特征外，还采取了第3个、第4个卷积层的特征，论文提供的可视化图形如下
+
 
 ### Project
 
