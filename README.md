@@ -67,6 +67,10 @@
   
 [SegNet: A Deep Convolutional Encoder-Decoder Architecture for Image Segmentation](https://arxiv.org/pdf/1511.00561.pdf)
 
+### 转置卷积层 (ransposed Convolution)
+
+卷积神经网络在卷积和池化过程中，高和宽都会不断缩减，VGGnet高和宽都缩减为1/32,全卷积网络通过转置卷积（transposed convolution）层将中间层特征图的高和宽变换回输入图像的尺寸，从而令预测结果与输入图像在空间维（高和宽）上一一对应：给定空间维上的位置，通道维的输出即该位置对应像素的类别预测。
+
 ### Project
 
 #### 数据处理
