@@ -90,7 +90,9 @@ def bilinear_kernel(in_channels, out_channels, kernel_size):
 
 ### 跳跃连接(Skip Layer)
 
-卷积和池化过程中，会丢失空间信息，在[Fully Convolutional Networks for Semantic Segmentation](https://arxiv.org/pdf/1411.4038.pdf)论文中，作者除了采取最后一个卷积层的特征外，还采取了第3个、第4个卷积层的特征，论文提供的可视化图形如下
+卷积和池化过程中，会丢失空间信息，在[Fully Convolutional Networks for Semantic Segmentation](https://arxiv.org/pdf/1411.4038.pdf)论文中，作者除了采取最后一个卷积层的特征外，还采取了第3个、第4个卷积层的特征，利用多个卷积层提供的特征，得到了更好的训练效果。论文提供的可视化图形如下：
+
+![image](./Img/Skip-Layer.png)
 
 
 ### Project
