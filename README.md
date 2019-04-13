@@ -152,12 +152,15 @@ Hybrid Dilated Convolutio(HDC)
 - Reshape：容易造成物体变形
 - Crop：可能会是的部分区域权重过大
 
-空间金字塔池化[Spatial Pyramid Pooling in Deep Convolutional Networks for Visual Recognition]通过不同卷积层提取特征，根据输出要求来调整卷积的参数，从而得到固定大小的输出，然后合并结果作为输出，这样做有两个好处：
+[Spatial Pyramid Pooling in Deep Convolutional Networks for Visual Recognition](https://arxiv.org/pdf/1406.4729.pdf), 论文提出了金字塔池化方法通过不同卷积层提取特征，根据输出要求来调整卷积的参数，从而得到固定大小的输出，然后合并结果作为输出，这样做有两个好处：
 - 适用于任何尺寸输出
 - 多方面提取图片特征
 
+
+
 假设输入大小为w*h,为了得到输出尺寸为n*n的结果，可以采用步长Stride为Floor[w/n,h/n]窗口大小为Ceil[w/n,h/n]的卷积核，根据试验结果，计算开销近似，精度提升1%~2%
 
+空间金字塔池化有两种做法：
 
 - 第一种方法，在一个卷积分支下，采用不同Dilation Rate空洞卷积提取特征。大Dilation Rate提取大、近距离的物体；小Dilation Rate提取小、远距离的物体
 
