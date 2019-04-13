@@ -131,6 +131,7 @@ IOU = TP/(TP + FN + FP)
 - The Gridding Effort
 
 Kernel不连续，可能存在部分pixel信息没有利用的现象
+![image](./Img/dilation-rate.png)仅仅使用Dilation=2，部分信息得不到利用
 
 - Dilation参数对检测对象的大小敏感
 
@@ -144,6 +145,9 @@ Hybrid Dilated Convolutio(HDC)
 - 锯齿状结构。如[1,2,5,1,2,5]
 - Mi = max[Mi+1 - 2*ri, Mi+1 - 2*(Mi+1 - ri), ri]
 
+一个简单的例子: dilation rate [1, 2, 5] with 3 x 3 kernel
+![image](./Img/1-2-5.png)
+
 多尺寸分割
 
 空间金字塔池化(Atrous Spatial Pyramid Pooling)(ASPP)
@@ -155,6 +159,8 @@ Hybrid Dilated Convolutio(HDC)
 [Spatial Pyramid Pooling in Deep Convolutional Networks for Visual Recognition](https://arxiv.org/pdf/1406.4729.pdf), 论文提出了金字塔池化方法通过不同卷积层提取特征，根据输出要求来调整卷积的参数，从而得到固定大小的输出，然后合并结果作为输出，这样做有两个好处：
 - 适用于任何尺寸输出
 - 多方面提取图片特征
+
+![image](./Img/ASPP.png)
 
 
 
