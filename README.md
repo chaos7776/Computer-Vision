@@ -119,3 +119,21 @@ def voc_rand_crop(feature, label, height, width):
 ![image](./Img/混淆矩阵.png)
 
 IOU = TP/(TP + FN + FP)
+
+
+空洞卷积(Dilated Convolution)
+
+传统语义分割卷积操作，通过卷积计算提取特征，通过池化(Pooling)增加感受野，在通过上采样(Upsampling)还原尺寸得到与输入大小一致的输出，但是池化过程中丢失了部分信息，长采样不能无损还原。而空洞卷积不使用池化操作，因此保留了数据的内部结构，避免了特征损失，而空洞卷积本身可以扩大感受野。
+
+![image](https://pic2.zhimg.com/50/v2-4959201e816888c6648f2e78cccfd253_hd.jpg)
+
+空洞的尺寸为参数Dilation决定，上图为Dilation=1的情形，Dilation=0即为传统卷积，Dilation越大，感受野越大。空洞卷积在增大感受野的同时，避免了特征损失，但存在两个问题：
+- The Gridding Effort
+
+Kernel不连续，可能存在部分pixel信息没有利用的现象
+
+- Dilation参数对检测对象的大小敏感
+
+大Dilation Rate对大尺寸物体(近距离)分割有效，小Dilation Rate对小物体(远距离)分割有效，不能通用
+
+上述两个问题，可以通过合理设计网络来解决
