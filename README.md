@@ -121,7 +121,7 @@ def voc_rand_crop(feature, label, height, width):
 $ IOU = \frac{TP}{TP + FN + FP} $
 
 
-空洞卷积(Dilated Convolution)
+### 空洞卷积(Dilated Convolution)
 
 传统语义分割卷积操作，通过卷积计算提取特征，通过池化(Pooling)增加感受野，在通过上采样(Upsampling)还原尺寸得到与输入大小一致的输出，但是池化过程中丢失了部分信息，长采样不能无损还原。而空洞卷积不使用池化操作，因此保留了数据的内部结构，避免了特征损失，而空洞卷积本身可以扩大感受野。
 
@@ -143,8 +143,7 @@ Hybrid Dilated Convolutio(HDC)
 
 - Dilation Rate公约数为1
 - 锯齿状结构。如[1,2,5,1,2,5]
-- 
-$M_i = \max{M_{i+1} - 2r_i, M_{i+1} - 2(M_{i+1} - r_i), r_i}$
+- $M_i = \max{M_{i+1} - 2r_i, M_{i+1} - 2(M_{i+1} - r_i), r_i}$
 
 一个简单的例子: dilation rate [1, 2, 5] with 3 x 3 kernel
 ![image](./Img/1-2-5.png)
