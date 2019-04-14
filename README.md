@@ -130,8 +130,8 @@ IOU = TP/(TP + FN + FP)
 空洞的尺寸为参数Dilation决定，上图为Dilation=1的情形，Dilation=0即为传统卷积，Dilation越大，感受野越大。空洞卷积在增大感受野的同时，避免了特征损失，但存在两个问题：
 - The Gridding Effort
 
-Kernel不连续，可能存在部分pixel信息没有利用的现象
-![image](./Img/dilation-rate.png)仅仅使用Dilation=2，部分信息得不到利用
+Kernel不连续，可能存在部分pixel信息没有利用的现象，如仅仅使用Dilation=2，部分信息得不到利用
+![image](./Img/dilation-rate.png)
 
 - Dilation参数对检测对象的大小敏感
 
@@ -143,7 +143,7 @@ Hybrid Dilated Convolutio(HDC)
 
 - Dilation Rate公约数为1
 - 锯齿状结构。如[1,2,5,1,2,5]
-- Mi = max[Mi+1 - 2*ri, Mi+1 - 2*(Mi+1 - ri), ri]
+- $ Mi = max[M_i+1 - 2*ri, Mi+1 - 2*(Mi+1 - ri), ri] $
 
 一个简单的例子: dilation rate [1, 2, 5] with 3 x 3 kernel
 ![image](./Img/1-2-5.png)
