@@ -118,7 +118,7 @@ def voc_rand_crop(feature, label, height, width):
 
 ![image](./Img/混淆矩阵.png)
 
-IOU = TP/(TP + FN + FP)
+$ IOU = \frac{TP}{TP + FN + FP} $
 
 
 空洞卷积(Dilated Convolution)
@@ -143,7 +143,9 @@ Hybrid Dilated Convolutio(HDC)
 
 - Dilation Rate公约数为1
 - 锯齿状结构。如[1,2,5,1,2,5]
-- $ Mi = max[M_i+1 - 2*ri, Mi+1 - 2*(Mi+1 - ri), ri] $
+- 
+
+$$Mi = max(M_{i+1} - 2*r_{i}, M_{i+1} - 2*(M_{i+1} - r_i), r_i)$$
 
 一个简单的例子: dilation rate [1, 2, 5] with 3 x 3 kernel
 ![image](./Img/1-2-5.png)
