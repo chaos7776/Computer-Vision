@@ -143,7 +143,7 @@ Hybrid Dilated Convolutio(HDC)
 
 - Dilation Rate公约数为1
 - 锯齿状结构。如[1,2,5,1,2,5]
-- $M_i = \max{M_{i+1} - 2r_i, M_{i+1} - 2(M_{i+1} - r_i), r_i}$
+- $M_i = \max[M_{i+1} - 2r_i, M_{i+1} - 2(M_{i+1} - r_i), r_i]$
 
 一个简单的例子: dilation rate [1, 2, 5] with 3 x 3 kernel
 ![image](./Img/1-2-5.png)
