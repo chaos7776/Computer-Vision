@@ -173,3 +173,9 @@ Hybrid Dilated Convolutio(HDC)
 - 第二种方法，通过多个独立的卷积网络分支提取特征，不同Dilation Rate抓取多尺寸信息，合并卷积层结果输出预测结果
 
 
+
+tf.nn.atrous_conv2d(value=img2, filters=filter, rate=1, padding='SAME')
+
+
+
+
